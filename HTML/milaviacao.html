@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>MIL AVIAÇÃO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    .titulo-central {
+      background-color: #0d1f1e;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 10px;
+    }
+
+    .button-container {
+  display: flex;
+  flex-direction: column; /* Organiza os botões na vertical */
+  gap: 10px; /* Espaço entre os botões */
+  align-items: flex-start; /* Alinha os botões à esquerda */
+  margin-top: 30px;
+  padding-left: 20px; /* Adiciona um pequeno espaçamento da borda esquerda */
+}
+
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .mib { background-color: #007BFF; }
+    .krt { background-color: #FF8C00; }
+    .mep { background-color: #777777; }
+
+    .form-button-fixed {
+      position: fixed;
+      left: 40px;
+      top: 140px;
+    }
+
+    form {
+      display: none;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .submit-btn {
+      background-color: #2ecc71;
+      color: white;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    #voosAgendados {
+      display: none;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 1100px;
+      background: #eee;
+      border-radius: 10px;
+    }
+
+    .voo-item {
+      display: flex;
+      gap: 30px;
+      background: white;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .voo-item div {
+      min-width: 100px;
+    }
+
+    .pax-list {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+      padding-left: 10px;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px auto;
+    }
+
+    #verVoos {
+      display: none;
+      background: #333;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn-pax {
+      background: #006400;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      font-size: 12px;
+      margin-top: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="C:/Users/user/Documents/Programação/Mil_Aviacao/LOGO/LOGO MIL AVIAÇÃO -.png" alt="Logo MIL AVIAÇÃO">
+  </header>
+  </header>
+
+  <div class="titulo-central">MIL AVIAÇÃO</div>
+
+  <div id="buttonContainer" class="button-container">
+    <button class="mib" onclick="mostrarFormulario(6, 'MIB')">MIB</button>
+    <button class="krt" onclick="mostrarFormulario(8, 'KRT')">KRT</button>
+    <button class="mep" onclick="mostrarFormulario(9, 'MEP')">MEP</button>
+  </div>
+
+  <form id="formulario" method="POST">
+    <label>1 - Dia:</label>
+    <input type="date" name="dia" required>
+
+    <label>2 - Origem:</label>
+    <input type="text" name="origem" required>
+
+    <label>3 - Destino:</label>
+    <input type="text" name="destino" required>
+
+    <label>4 - Hora:</label>
+    <input type="time" name="hora" required>
+
+    <label>5 - Lista de Pax:</label>
+    <div id="pax-container"></div>
+
+    <label>6 - Email do solicitante:</label>
+    <input type="email" name="email" required>
+
+    <label>7 - Data que solicitou:</label>
+    <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
+
+    <button type="submit" class="submit-btn">Enviar</button>
+    <button type="button" onclick="cancelarFormulario()" style="margin-left: 10px; background-color: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
+  </form>
+
+  <div class="controls">
+    <button id="verVoos" onclick="mostrarVoos()">VOOS AGENDADOS</button>
+    <button onclick="exportarCSV()" style="background: #1abc9c; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer;">EXPORTAR CSV</button>
+  </div>
+
+  <div id="voosAgendados"></div>
+
+  <script>
+    let voos = JSON.parse(localStorage.getItem("voos")) || [];
+    let ordemBase = 20250000;
+    let editandoIndex = null;
+
+    function mostrarFormulario(qtdPax, tipo) {
+      const botoes = document.querySelectorAll(".button-container button");
+      botoes.forEach(btn => {
+        if (btn.innerText !== tipo) btn.style.display = "none";
+        else btn.classList.add("form-button-fixed");
+      });
+
+      const agora = new Date();
+      const dataHoraFormatada = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById("dataSolicitada").value = dataHoraFormatada;
+
+      const paxContainer = document.getElementById("pax-container");
+      paxContainer.innerHTML = "";
+      for (let i = 1; i <= qtdPax; i++) {
+        paxContainer.innerHTML += `<input type="text" name="pax${i}" placeholder="Passageiro ${i}">`;
+      }
+
+      document.getElementById("formulario").style.display = "block";
+    }
+
+    function cancelarFormulario() {
+      document.getElementById("formulario").style.display = "none";
+      document.querySelectorAll(".button-container button").forEach(btn => {
+        btn.style.display = "inline-block";
+        btn.classList.remove("form-button-fixed");
+      });
+      document.getElementById("formulario").reset();
+    }
+
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const form = event.target;
+      const dados = new FormData(form);
+
+      let voo = {
+        os: "OS: " + (ordemBase + voos.length),
+        dia: dados.get("dia"),
+        origem: dados.get("origem"),
+        destino: dados.get("destino"),
+        hora: dados.get("hora"),
+        pax: [],
+        email: dados.get("email"),
+        dataSolicitada: dados.get("dataSolicitada")
+      };
+
+      for (let [key, value] of dados.entries()) {
+        if (key.startsWith("pax") && value.trim() !== "") {
+          voo.pax.push(value);
+        }
+      }
+
+      if (editandoIndex !== null) {
+        voos[editandoIndex] = voo;
+        editandoIndex = null;
+      } else {
+        voos.push(voo);
+      }
+
+      localStorage.setItem("voos", JSON.stringify(voos));
+      document.getElementById("verVoos").style.display = "block";
+
+      fetch("https://formsubmit.co/ajax/wellington@rbftaxiaereo.com.br", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          OS: voo.os,
+          Dia: voo.dia,
+          Origem: voo.origem,
+          Destino: voo.destino,
+          Hora: voo.hora,
+          Pax: voo.pax.join(", "),
+          Email: voo.email,
+          Solicitado_em: voo.dataSolicitada
+        })
+      })
+      .then(response => {
+        if (!response.ok) throw new Error("Erro ao enviar.");
+        alert("Voo agendado com sucesso!");
+        form.reset();
+        cancelarFormulario();
+        mostrarVoos();
+      })
+      .catch(error => {
+        alert("Erro ao enviar o formulário. Tente novamente.");
+        console.error(error);
+      });
+    });
+
+    function mostrarVoos() {
+      const container = document.getElementById("voosAgendados");
+      container.innerHTML = "";
+      voos.forEach((voo, i) => {
+        const paxId = "paxList" + i;
+        container.innerHTML += `
+          <div class="voo-item">
+            <div><strong>Ordem Serviço</strong><br>${voo.os}</div>
+            <div><strong>Dia</strong><br>${voo.dia}</div>
+            <div><strong>Origem</strong><br>${voo.origem}</div>
+            <div><strong>Destino</strong><br>${voo.destino}</div>
+            <div><strong>Hora</strong><br>${voo.hora}</div>
+            <div><strong>Email</strong><br>${voo.email}</div>
+            <div><strong>Solicitado em</strong><br>${voo.dataSolicitada}</div>
+            <div>
+              <button class="btn-pax" onclick="togglePax('${paxId}')">Ver Pax</button>
+              <div id="${paxId}" class="pax-list">${voo.pax.map(p => `<div>${p}</div>`).join("")}</div>
+            </div>
+          </div>
+        `;
+      });
+      container.style.display = "block";
+    }
+
+    function togglePax(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "flex" ? "none" : "flex";
+    }
+
+    function exportarCSV() {
+      if (voos.length === 0) {
+        alert("Nenhum voo agendado para exportar.");
+        return;
+      }
+
+      let csvContent = "data:text/csv;charset=utf-8,";
+      csvContent += "OS,Dia,Origem,Destino,Hora,Email,DataSolicitada,Passageiros\n";
+
+      voos.forEach(voo => {
+        const linha = [
+          voo.os,
+          voo.dia,
+          voo.origem,
+          voo.destino,
+          voo.hora,
+          voo.email,
+          voo.dataSolicitada,
+          '"' + voo.pax.join(", ") + '"'
+        ].join(",");
+        csvContent += linha + "\n";
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "voos_agendados.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    if (voos.length > 0) {
+      document.getElementById("verVoos").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

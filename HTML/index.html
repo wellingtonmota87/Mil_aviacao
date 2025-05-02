@@ -2,31 +2,37 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>MIL AVIAÇÃO</title>
+  <title>SOLICITAÇÃO DE VOO</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('C:/Users/user/Documents/Minhas Programações/Mil_Aviação/IMAGENS/cessna-citation-gen3-novo_widelg.jpg'); /* Define a imagem de fundo */
+  background-size: cover; /* Faz a imagem cobrir toda a tela */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Impede a repetição da imagem */
+}
 
-    header {
-      display: flex;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #ffffff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+header {
+  display: flex; /* Usa Flexbox para organizar os elementos */
+  justify-content: center; /* Centraliza a imagem horizontalmente */
+  align-items: center; /* Centraliza a imagem verticalmente */
+  padding: 20px; /* Adiciona espaçamento interno */
+  background-color: #90EE90; /* Fundo LightGreen */
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+}
 
-    header img {
-      height: 60px;
-    }
+header img {
+  height: 130px; /* Define a altura da imagem */
+}
+
 
     .titulo-central {
+
       background-color: #0d1f1e;
       color: white;
       text-align: center;
-      padding: 30px 0;
+      padding: 10px 0;
       font-size: 32px;
       font-weight: bold;
       letter-spacing: 10px;
@@ -50,8 +56,8 @@
       cursor: pointer;
     }
 
-    .mib { background-color: #007BFF; }
-    .krt { background-color: #FF8C00; }
+    .mib { background-color: #000080; }
+    .krt { background-color: #FF4500; }
     .mep { background-color: #777777; }
 
     .form-button-fixed {
@@ -136,7 +142,7 @@
       color: white;
       padding: 12px 20px;
       border: none;
-      border-radius: 8px;
+      border-radius: 100px;
       cursor: pointer;
     }
 
@@ -159,7 +165,7 @@
   </header>
   </header>
 
-  <div class="titulo-central">MIL AVIAÇÃO</div>
+  <div class="titulo-central">SOLICITAÇÃO DE VOO</div>
 
   <div id="buttonContainer" class="button-container">
     <button class="mib" onclick="mostrarFormulario(6, 'MIB')">MIB</button>
@@ -168,8 +174,11 @@
   </div>
 
   <form id="formulario" method="POST">
-    <label>1 - Dia:</label>
-    <input type="date" name="dia" required>
+    <label>1 - Empresa:</label>
+    <input type="text" name="empresa" required>
+
+    <label>1 - Data:</label>
+    <input type="date" name="data" required>
 
     <label>2 - Origem:</label>
     <input type="text" name="origem" required>
@@ -240,8 +249,10 @@
       const dados = new FormData(form);
 
       let voo = {
-        os: "OS: " + (ordemBase + voos.length),
-        dia: dados.get("dia"),
+        os: (ordemBase + voos.length),
+        aeronave: document.querySelector(".form-button-fixed")?.innerText || "Desconhecida",
+        empresa: dados.get("empresa"),
+        data: dados.get("data"),
         origem: dados.get("origem"),
         destino: dados.get("destino"),
         hora: dados.get("hora"),
@@ -271,7 +282,9 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           OS: voo.os,
-          Dia: voo.dia,
+          Aeronave: voo.aeronave,
+          Empresa: voo.empresa,
+          Data: voo.data,
           Origem: voo.origem,
           Destino: voo.destino,
           Hora: voo.hora,
@@ -301,7 +314,8 @@
         container.innerHTML += `
           <div class="voo-item">
             <div><strong>Ordem Serviço</strong><br>${voo.os}</div>
-            <div><strong>Dia</strong><br>${voo.dia}</div>
+            <div><strong>Empresa</strong><br>${voo.empresa}</div>
+            <div><strong>Data</strong><br>${voo.data}</div>
             <div><strong>Origem</strong><br>${voo.origem}</div>
             <div><strong>Destino</strong><br>${voo.destino}</div>
             <div><strong>Hora</strong><br>${voo.hora}</div>
@@ -329,12 +343,14 @@
       }
 
       let csvContent = "data:text/csv;charset=utf-8,";
-      csvContent += "OS,Dia,Origem,Destino,Hora,Email,DataSolicitada,Passageiros\n";
+      csvContent += "Aeronave,Empresa,Data,Origem,Destino,Hora,Email,DataSolicitada,Passageiros\n";
 
       voos.forEach(voo => {
         const linha = [
+          voo.aeronave,
+          voo.empresa,
           voo.os,
-          voo.dia,
+          voo.data,
           voo.origem,
           voo.destino,
           voo.hora,

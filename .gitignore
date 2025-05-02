@@ -1,0 +1,16 @@
+# Evita subir arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Imagens grandes, caso deseje excluir da versão
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Node.js (caso um dia use)
+node_modules/
+

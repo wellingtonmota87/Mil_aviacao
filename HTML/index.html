@@ -41,7 +41,7 @@ header img {
     .button-container {
   display: flex;
   flex-direction: column; /* Organiza os botões na vertical */
-  gap: 10px; /* Espaço entre os botões */
+  gap: 100px; /* Espaço entre os botões */
   align-items: flex-start; /* Alinha os botões à esquerda */
   margin-top: 30px;
   padding-left: 20px; /* Adiciona um pequeno espaçamento da borda esquerda */
@@ -51,14 +51,15 @@ header img {
       font-size: 20px;
       padding: 15px 30px;
       border: none;
-      border-radius: 8px;
+      border: 2px solid black; /* Borda preta de 2px */
+      border-radius: 8px; /* Bordas arredondadas */
       color: white;
       cursor: pointer;
     }
-
-    .mib { background-color: #000080; }
-    .krt { background-color: #FF4500; }
-    .mep { background-color: #777777; }
+    .mib {background: linear-gradient(to bottom, #007bFF, #b3bed3);}
+    .krt {background: linear-gradient(to bottom, #FF4500, #e9c5a4);}
+    .mep {background: linear-gradient(to bottom, #777777, #f1f3f2);}
+    .rbz {background: linear-gradient(to bottom, #333231, #969797);}
 
     .form-button-fixed {
       position: fixed;
@@ -156,6 +157,21 @@ header img {
       border-radius: 5px;
       cursor: pointer;
     }
+
+      .btn-cancelar {
+     background: #e74c3c; /* Vermelho */
+     color: white;
+     border: none;
+     padding: 5px 10px;
+     font-size: 12px;
+     margin-top: 5px;
+     border-radius: 5px;
+     cursor: pointer;
+}
+
+
+
+    }
   </style>
 </head>
 <body>
@@ -171,31 +187,35 @@ header img {
     <button class="mib" onclick="mostrarFormulario(6, 'MIB')">MIB</button>
     <button class="krt" onclick="mostrarFormulario(8, 'KRT')">KRT</button>
     <button class="mep" onclick="mostrarFormulario(9, 'MEP')">MEP</button>
+    <button class="rbz" onclick="mostrarFormulario(6, 'RBZ')">RBZ</button>
   </div>
 
   <form id="formulario" method="POST">
+
+    <label class="etapa-label">1ª ETAPA</label>
+
     <label>1 - Empresa:</label>
     <input type="text" name="empresa" required>
 
-    <label>1 - Data:</label>
+    <label>2 - Data:</label>
     <input type="date" name="data" required>
 
-    <label>2 - Origem:</label>
+    <label>3 - Origem:</label>
     <input type="text" name="origem" required>
 
-    <label>3 - Destino:</label>
+    <label>4 - Destino:</label>
     <input type="text" name="destino" required>
 
-    <label>4 - Hora:</label>
+    <label>5 - Hora:</label>
     <input type="time" name="hora" required>
 
-    <label>5 - Lista de Pax:</label>
+    <label>6 - Lista de Pax:</label>
     <div id="pax-container"></div>
 
-    <label>6 - Email do solicitante:</label>
+    <label>7 - Email do solicitante:</label>
     <input type="email" name="email" required>
 
-    <label>7 - Data que solicitou:</label>
+    <label>8 - Data que solicitou:</label>
     <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
 
     <button type="submit" class="submit-btn">Enviar</button>
@@ -204,8 +224,7 @@ header img {
 
   <div class="controls">
     <button id="verVoos" onclick="mostrarVoos()">VOOS AGENDADOS</button>
-    <button onclick="exportarCSV()" style="background: #1abc9c; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer;">EXPORTAR CSV</button>
-  </div>
+
 
   <div id="voosAgendados"></div>
 
@@ -220,6 +239,15 @@ header img {
         if (btn.innerText !== tipo) btn.style.display = "none";
         else btn.classList.add("form-button-fixed");
       });
+
+      function cancelarVoo(index) {
+  if (confirm("Tem certeza que deseja cancelar esta solicitação?")) {
+    voos.splice(index, 1); // Remove o voo da lista pelo índice
+    localStorage.setItem("voos", JSON.stringify(voos)); // Atualiza os dados armazenados
+    mostrarVoos(); // Atualiza a exibição da lista de voos
+  }
+}
+
 
       const agora = new Date();
       const dataHoraFormatada = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
@@ -325,6 +353,8 @@ header img {
               <button class="btn-pax" onclick="togglePax('${paxId}')">Ver Pax</button>
               <div id="${paxId}" class="pax-list">${voo.pax.map(p => `<div>${p}</div>`).join("")}</div>
             </div>
+             <button class="btn-cancelar" onclick="cancelarVoo(${i})">Cancelar Voo</button>
+      </div>
           </div>
         `;
       });
@@ -341,6 +371,8 @@ header img {
         alert("Nenhum voo agendado para exportar.");
         return;
       }
+
+      
 
       let csvContent = "data:text/csv;charset=utf-8,";
       csvContent += "Aeronave,Empresa,Data,Origem,Destino,Hora,Email,DataSolicitada,Passageiros\n";

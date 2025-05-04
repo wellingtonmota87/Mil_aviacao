@@ -44,7 +44,7 @@ header img {
   display: flex;
   flex-direction: row; /* Organiza os botões na vertical */
   gap: 290px; /* Espaço entre os botões */
-  align-items: flex-start; /* Alinha os botões à esquerda */
+  align-items: flex-start; /* Alinha os botões no centro */
   margin-top: 350px;
   padding-left: 30px; /* Adiciona um pequeno espaçamento da borda esquerda */
 }
@@ -65,14 +65,14 @@ header img {
 
     .form-button-fixed {
       position: absolute;
-      left: 580px;
+      left: 600px;
       top: 250px;
     }
 
     form {
       display: none;
       max-width: 600px;
-      margin: 40px auto;
+      margin: -250px auto;
       padding: 40px;
       background-color: #f5c89e;
       border-radius: 10px;
@@ -81,7 +81,7 @@ header img {
 
     form label {
       display: grid;
-      margin-top: 10px;
+      margin-top: 20px;
       font-weight: bold;
     }
 
@@ -101,7 +101,7 @@ header img {
     }
 
     #voosAgendados {
-      display: none;
+      display: flex;
       padding: 5px;
       margin: 10px auto;
       max-width: 1500px;
@@ -180,6 +180,20 @@ header img {
      cursor: pointer;
 }
 
+.etapa-label {
+  display: block;        /* Faz a label se comportar como um bloco */
+  width: 100%;           /* Ocupa 100% da largura do contêiner pai */
+  text-align: center;    /* Centraliza o texto */
+  font-weight: bold;     /* Opcional: destaque no texto */
+  margin: 30px 0;        /* Espaçamento vertical */
+  text-decoration: underline; /* Sublinha o texto */
+  font-size: 18px;
+  color: #000; /* ou qualquer outra cor */
+  background-color: #faa454; /* Cor de fundo para destacar */
+  padding: 10px; /* Espaçamento interno para melhorar a legibilidade */
+  border: 1px solid #152c0b; /* Borda para destacar */
+}
+
 
   </style>
 </head>
@@ -196,8 +210,10 @@ header img {
     <button class="mib" onclick="mostrarFormulario(6, 'MIB')">MIB</button>
     <button class="krt" onclick="mostrarFormulario(8, 'KRT')">KRT</button>
     <button class="mep" onclick="mostrarFormulario(9, 'MEP')">MEP</button>
-    <button class="rbz" onclick="mostrarFormulario(6, 'RBZ')">RBZ</button>
+    <button class="rbz" onclick="mostrarFormulario(13, 'RBZ')">RBZ</button>
   </div>
+
+  
 
   <form id="formulario" method="POST">
 
@@ -227,8 +243,96 @@ header img {
     <label>8 - Data que solicitou:</label>
     <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
 
-    <button type="submit" class="submit-btn">Enviar</button>
-    <button type="button" onclick="cancelarFormulario()" style="margin-left: 10px; background-color: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
+
+
+  <form id="formulario" method="POST">
+
+    <label class="etapa-label">2ª ETAPA</label>
+
+    <label>1 - Empresa:</label>
+    <input type="text" name="empresa" required>
+
+    <label>2 - Data:</label>
+    <input type="date" name="data" required>
+
+    <label>3 - Origem:</label>
+    <input type="text" name="origem" required>
+
+    <label>4 - Destino:</label>
+    <input type="text" name="destino" required>
+
+    <label>5 - Hora:</label>
+    <input type="time" name="hora" required>
+
+    <label>6 - Lista de Pax:</label>
+    <div id="pax-container"></div>
+
+    <label>7 - Email do solicitante:</label>
+    <input type="email" name="email" required>
+
+    <label>8 - Data que solicitou:</label>
+    <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
+
+
+    <form id="formulario" method="POST">
+
+      <label class="etapa-label">3ª ETAPA</label>
+  
+      <label>1 - Empresa:</label>
+      <input type="text" name="empresa" required>
+  
+      <label>2 - Data:</label>
+      <input type="date" name="data" required>
+  
+      <label>3 - Origem:</label>
+      <input type="text" name="origem" required>
+  
+      <label>4 - Destino:</label>
+      <input type="text" name="destino" required>
+  
+      <label>5 - Hora:</label>
+      <input type="time" name="hora" required>
+  
+      <label>6 - Lista de Pax:</label>
+      <div id="pax-container"></div>
+  
+      <label>7 - Email do solicitante:</label>
+      <input type="email" name="email" required>
+  
+      <label>8 - Data que solicitou:</label>
+      <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
+  
+
+      <form id="formulario" method="POST">
+
+        <label class="etapa-label">4ª ETAPA</label>
+    
+        <label>1 - Empresa:</label>
+        <input type="text" name="empresa" required>
+    
+        <label>2 - Data:</label>
+        <input type="date" name="data" required>
+    
+        <label>3 - Origem:</label>
+        <input type="text" name="origem" required>
+    
+        <label>4 - Destino:</label>
+        <input type="text" name="destino" required>
+    
+        <label>5 - Hora:</label>
+        <input type="time" name="hora" required>
+    
+        <label>6 - Lista de Pax:</label>
+        <div id="pax-container"></div>
+    
+        <label>7 - Email do solicitante:</label>
+        <input type="email" name="email" required>
+    
+        <label>8 - Data que solicitou:</label>
+        <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
+    
+        <button type="submit" class="submit-btn">Enviar</button>
+        <button type="button" onclick="cancelarFormulario()" style="margin-left: 10px; background-color: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
   </form>
 
   <div class="controls">
@@ -354,6 +458,7 @@ header img {
         container.innerHTML += `
           <div class="voo-item">
             <div><strong>Ordem Serviço</strong><br>${voo.os}</div>
+            <div><strong>Aeronave</strong><br>${voo.aeronave}</div>
             <div><strong>Empresa</strong><br>${voo.empresa}</div>
             <div><strong>Data</strong><br>${voo.data}</div>
             <div><strong>Origem</strong><br>${voo.origem}</div>

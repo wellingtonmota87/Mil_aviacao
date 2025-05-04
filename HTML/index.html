@@ -171,9 +171,16 @@ header img {
      cursor: pointer;
 }
 
+      .controls button {
+     background: #2c3e50;
+     color: white;
+     padding: 12px 20px;
+     border: none;
+     border-radius: 100px;
+     cursor: pointer;
+}
 
 
-    }
   </style>
 </head>
 <body>
@@ -226,6 +233,9 @@ header img {
 
   <div class="controls">
     <button id="verVoos" onclick="mostrarVoos()">VOOS AGENDADOS</button>
+    <button onclick="exportarCSV()">EXPORTAR CSV</button>
+  </div>
+  
 
 
   <div id="voosAgendados"></div>
@@ -363,10 +373,14 @@ header img {
       container.style.display = "block";
     }
 
+
+    
     function togglePax(id) {
       const el = document.getElementById(id);
       el.style.display = el.style.display === "flex" ? "none" : "flex";
     }
+
+    
 
     function exportarCSV() {
       if (voos.length === 0) {
@@ -393,16 +407,17 @@ header img {
           '"' + voo.pax.join(", ") + '"'
         ].join(",");
         csvContent += linha + "\n";
-      });
+  });
 
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "voos_agendados.csv");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "voos_agendados.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 
     if (voos.length > 0) {
       document.getElementById("verVoos").style.display = "block";

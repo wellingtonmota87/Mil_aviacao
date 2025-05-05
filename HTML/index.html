@@ -45,139 +45,140 @@ header img {
   flex-direction: row; /* Organiza os botões na vertical */
   gap: 290px; /* Espaço entre os botões */
   align-items: flex-start; /* Alinha os botões no centro */
-  margin-top: 350px;
+  margin-top: 350px; /* Espaço acima dos botões */
   padding-left: 30px; /* Adiciona um pequeno espaçamento da borda esquerda */
 }
 
     button {
       font-size: 20px;
-      padding: 15px 30px;
-      border: none;
+      padding: 15px 30px; /* Espaçamento interno do botão */
+      border: none; /* Remove a borda padrão */
       border: 2px solid black; /* Borda preta de 2px */
       border-radius: 8px; /* Bordas arredondadas */
-      color: white;
-      cursor: pointer;
+      color: white; /* Cor do texto */
+      cursor: pointer;  /* Cursor de ponteiro ao passar o mouse */
     }
-    .mib {background: linear-gradient(to bottom, #125296, #b3bed3);}
-    .krt {background: linear-gradient(to bottom, #FF4500, #e9c5a4);}
+    .mib {background: linear-gradient(to bottom, #125296, #b3bed3);} 
+    .krt {background: linear-gradient(to bottom, #FF4500, #e9c5a4);} 
     .mep {background: linear-gradient(to bottom, #110342, #f1f3f2);}
     .rbz {background: linear-gradient(to bottom, #333231, #969797);}
 
-    .form-button-fixed {
-      position: absolute;
-      left: 600px;
-      top: 250px;
+    .form-button-fixed { /* Classe para manter o botão fixo */
+      position: absolute; /* Posiciona o botão de forma absoluta */
+      left: 600px; /* Alinha o botão à esquerda */
+      top: 250px; /* Alinha o botão ao topo */
     }
 
     form {
-      display: none;
-      max-width: 600px;
-      margin: -250px auto;
-      padding: 40px;
-      background-color: #f5c89e;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: none; /* Oculta o formulário inicialmente */
+      max-width: 600px; /* Largura máxima do formulário */
+      margin: -250px auto; /* Centraliza o formulário verticalmente */
+      padding: 40px; /* Espaçamento interno do formulário */
+      background-color: #f5c89e; /* Cor de fundo do formulário */
+      border-radius: 10px; /* Bordas arredondadas */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra do formulário */
     }
 
-    form label {
-      display: grid;
-      margin-top: 20px;
-      font-weight: bold;
+    form label { /* Estilo para os rótulos do formulário */
+      display: grid; /* Usa grid para organizar os rótulos */
+      margin-top: 20px; /* Espaçamento acima dos rótulos */
+      font-weight: bold; /* Negrito para os rótulos */
     }
 
-    form input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #152c0b;
-      border-radius: 5px;
+    form input { /* Estilo para os campos de entrada do formulário */
+      width: 100%; /* Largura total do campo */
+      padding: 10px; /* Espaçamento interno do campo */
+      margin-top: 5px; /* Espaçamento acima do campo */
+      border: 1px solid #152c0b; /* Borda do campo */
+      border-radius: 5px; /* Bordas arredondadas */
     }
 
-    .submit-btn {
-      background-color: #1c924d;
-      color: white;
-      margin-top: 20px;
-      cursor: pointer;
+    .submit-btn { /* Estilo para o botão de envio */
+      background-color: #1c924d; /* Cor de fundo do botão */
+      color: white; /* Cor do texto */
+      margin-top: 20px; /* Espaçamento acima do botão */
+      cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
     }
 
-    #voosAgendados {
-      display: flex;
-      padding: 5px;
-      margin: 10px auto;
-      max-width: 1500px;
-      background: #eee;
-      border-radius: 10px;
+    #voosAgendados { /* Estilo para a lista de voos agendados */
+      display: none; /* Oculta a lista inicialmente */
+      padding: 5px; /* Espaçamento interno da lista */
+      margin: 10px auto; /* Centraliza a lista */
+      max-width: 1500px; /* Largura máxima da lista */
+      background: #eee; /* Cor de fundo da lista */
+      border-radius: 10px; /* Bordas arredondadas */
     }
 
-    .voo-item {
-      display: flex;
-      gap: 30px;
-      background: white;
-      padding: 15px;
-      margin-top: 10px;
-      border-radius: 8px;
-      font-size: 14px;
-      flex-wrap: wrap;
+    .voo-item { /* Estilo para cada item da lista de voos */
+      display: flex; /* Usa flexbox para organizar os itens */
+      gap: 30px; /* Espaço entre os itens */
+      background: white; /* Cor de fundo dos itens */
+      padding: 15px; /* Espaçamento interno dos itens */
+      margin-top: 10px; /* Espaçamento acima dos itens */
+      border-radius: 8px; /* Bordas arredondadas dos itens */
+      font-size: 14px; /* Tamanho da fonte dos itens */
+      flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha se não houver espaço suficiente */
     }
 
-    .voo-item div {
-      min-width: 100px;
+    .voo-item div { /* Estilo para os divs dentro dos itens da lista */
+      min-width: 100px; /* Largura mínima dos divs */
     }
 
-    .pax-list {
-      display: none;
-      flex-direction: column;
-      margin-top: 10px;
-      padding-left: 10px;
-      font-size: 13px;
+    .pax-list { /* Estilo para a lista de passageiros */
+      display: none; /* Oculta a lista inicialmente */
+      flex-direction: column; /* Organiza os passageiros em coluna */
+      margin-top: 10px; /* Espaçamento acima da lista de passageiros */
+      padding-left: 10px; /* Espaçamento à esquerda da lista de passageiros */
+      font-size: 13px; /* Tamanho da fonte da lista de passageiros */
+    }
+ 
+    .controls { /* Estilo para os controles */
+      display: flex; /* Usa flexbox para organizar os controles */
+      justify-content: center; /* Centraliza os controles */
+      gap: 15px; /* Espaço entre os controles */
+      margin: 20px auto; /* Centraliza os controles */
+    }
+ 
+    #verVoos { /* Estilo para o botão "VOOS AGENDADOS" */
+      display: none; /* Oculta o botão inicialmente */
+      background: #333; /* Cor de fundo do botão */
+      color: white; /* Cor do texto */
+      padding: 12px 20px; /* Espaçamento interno do botão */
+      border: none; /* Remove a borda padrão */
+      border-radius: 100px; /* Bordas arredondadas */
+      cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
     }
 
-    .controls {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin: 20px auto;
-    }
-
-    #verVoos {
-      display: none;
-      background: #333;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 100px;
-      cursor: pointer;
-    }
-
-    .btn-pax {
-      background: #006400;
-      color: white;
-      border: none;
-      padding: 4px 8px;
-      font-size: 12px;
-      margin-top: 5px;
-      border-radius: 5px;
-      cursor: pointer;
+    .btn-pax { /* Estilo para o botão "Ver Pax" */
+      background: #006400; /* Cor de fundo do botão */
+      color: white; /* Cor do texto */
+      border: none; /* Remove a borda padrão */
+      padding: 4px 8px; /* Espaçamento interno do botão */
+      font-size: 12px; /* Tamanho da fonte do botão */
+      margin-top: 5px; /* Espaçamento acima do botão */
+      border-radius: 5px; /* Bordas arredondadas */
+      cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
     }
 
       .btn-cancelar {
      background: #e74c3c; /* Vermelho */
-     color: white;
-     border: none;
-     padding: 5px 10px;
-     font-size: 12px;
-     margin-top: 5px;
-     border-radius: 5px;
-     cursor: pointer;
+     color: white; /* Cor do texto */
+     border: none; /* Remove a borda padrão */
+     padding: 5px 10px;  /* Espaçamento interno do botão */
+     font-size: 12px; /* Tamanho da fonte do botão */
+     margin-top: 5px; /* Espaçamento acima do botão */
+     border-radius: 5px;  /* Bordas arredondadas */
+     cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
 }
 
-      .controls button {
-     background: #2c3e50;
-     color: white;
-     padding: 12px 20px;
-     border: none;
-     border-radius: 100px;
-     cursor: pointer;
+      .controls button {  /* Estilo para os botões de controle */
+     background: #2980b9; /* Cor de fundo do botão */
+     background: #2c3e50; /* Cor de fundo do botão */
+     color: white; /* Cor do texto */
+     padding: 12px 20px; /* Espaçamento interno do botão */
+     border: none;    /* Remove a borda padrão */
+     border-radius: 100px;  /* Bordas arredondadas */
+     cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
 }
 
 .etapa-label {
@@ -195,169 +196,86 @@ header img {
 }
 
 
-  </style>
-</head>
+  </style> 
+</head> 
 <body>
 
   <header>
-    <img src="C:/Users/user/Documents/Programação/Mil_Aviacao/LOGO/LOGO MIL AVIAÇÃO -.png" alt="Logo MIL AVIAÇÃO">
+    <img src="C:/Users/user/Documents/Programação/Mil_Aviacao/LOGO/LOGO MIL AVIAÇÃO -.png" alt="Logo MIL AVIAÇÃO"> <!-- Logo da empresa -->
   </header>
   </header>
 
-  <div class="titulo-central">SOLICITAÇÃO DE VOO</div>
+  <div class="titulo-central">SOLICITAÇÃO DE VOO</div> <!-- Título centralizado -->
 
-  <div id="buttonContainer" class="button-container">
-    <button class="mib" onclick="mostrarFormulario(6, 'MIB')">MIB</button>
-    <button class="krt" onclick="mostrarFormulario(8, 'KRT')">KRT</button>
-    <button class="mep" onclick="mostrarFormulario(9, 'MEP')">MEP</button>
-    <button class="rbz" onclick="mostrarFormulario(13, 'RBZ')">RBZ</button>
+  <div id="buttonContainer" class="button-container"> <!-- Contêiner para os botões -->
+    <button class="mib" onclick="mostrarFormulario(6, 'MIB')">MIB</button> <!-- Botão para MIB -->
+    <button class="krt" onclick="mostrarFormulario(8, 'KRT')">KRT</button> <!-- Botão para KRT -->
+    <button class="mep" onclick="mostrarFormulario(9, 'MEP')">MEP</button> <!-- Botão para MEP -->
+    <button class="rbz" onclick="mostrarFormulario(13, 'RBZ')">RBZ</button> <!-- Botão para RBZ -->
   </div>
 
   
 
-  <form id="formulario" method="POST">
+  <form id="formulario" method="POST"> <!-- Formulário para solicitação de voo -->
 
-    <label class="etapa-label">1ª ETAPA</label>
+    <label class="etapa-label">1ª ETAPA</label> <!-- Rótulo para a primeira etapa -->
 
-    <label>1 - Empresa:</label>
-    <input type="text" name="empresa" required>
+    <label>1 - Empresa:</label> <!-- Rótulo para o campo "Empresa" -->
+    <input type="text" name="empresa" required> <!-- Campo de entrada para o nome da empresa -->
 
-    <label>2 - Data:</label>
-    <input type="date" name="data" required>
+    <label>2 - Data:</label> <!-- Rótulo para o campo "Data" -->
+    <input type="date" name="data" required> <!-- Campo de entrada para a data do voo -->
 
-    <label>3 - Origem:</label>
-    <input type="text" name="origem" required>
+    <label>3 - Origem:</label> <!-- Rótulo para o campo "Origem" -->
+    <input type="text" name="origem" required> <!-- Campo de entrada para a origem do voo -->
 
-    <label>4 - Destino:</label>
-    <input type="text" name="destino" required>
+    <label>4 - Destino:</label> <!-- Rótulo para o campo "Destino" -->
+    <input type="text" name="destino" required> <!-- Campo de entrada para o destino do voo -->
 
-    <label>5 - Hora:</label>
-    <input type="time" name="hora" required>
+    <label>5 - Hora:</label> <!-- Rótulo para o campo "Hora" -->
+    <input type="time" name="hora" required> <!-- Campo de entrada para a hora do voo -->
 
-    <label>6 - Lista de Pax:</label>
-    <div id="pax-container"></div>
+    <label>6 - Lista de Pax:</label> <!-- Rótulo para a lista de passageiros -->
+    <div id="pax-container"></div> <!-- Contêiner para os campos de entrada dos passageiros -->
 
-    <label>7 - Email do solicitante:</label>
-    <input type="email" name="email" required>
+    <label>7 - Email do solicitante:</label> <!-- Rótulo para o campo "Email" -->
+    <input type="email" name="email" required> <!-- Campo de entrada para o email do solicitante -->
 
-    <label>8 - Data que solicitou:</label>
-    <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
-
-
-
-  <form id="formulario" method="POST">
-
-    <label class="etapa-label">2ª ETAPA</label>
-
-    <label>1 - Empresa:</label>
-    <input type="text" name="empresa" required>
-
-    <label>2 - Data:</label>
-    <input type="date" name="data" required>
-
-    <label>3 - Origem:</label>
-    <input type="text" name="origem" required>
-
-    <label>4 - Destino:</label>
-    <input type="text" name="destino" required>
-
-    <label>5 - Hora:</label>
-    <input type="time" name="hora" required>
-
-    <label>6 - Lista de Pax:</label>
-    <div id="pax-container"></div>
-
-    <label>7 - Email do solicitante:</label>
-    <input type="email" name="email" required>
-
-    <label>8 - Data que solicitou:</label>
-    <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
-
-
-    <form id="formulario" method="POST">
-
-      <label class="etapa-label">3ª ETAPA</label>
+    <label>8 - Data que solicitou:</label> <!-- Rótulo para o campo "Data que solicitou" -->
+    <input type="text" name="dataSolicitada" id="dataSolicitada" readonly> <!-- Campo de entrada para a data que solicitou, somente leitura -->
   
-      <label>1 - Empresa:</label>
-      <input type="text" name="empresa" required>
-  
-      <label>2 - Data:</label>
-      <input type="date" name="data" required>
-  
-      <label>3 - Origem:</label>
-      <input type="text" name="origem" required>
-  
-      <label>4 - Destino:</label>
-      <input type="text" name="destino" required>
-  
-      <label>5 - Hora:</label>
-      <input type="time" name="hora" required>
-  
-      <label>6 - Lista de Pax:</label>
-      <div id="pax-container"></div>
-  
-      <label>7 - Email do solicitante:</label>
-      <input type="email" name="email" required>
-  
-      <label>8 - Data que solicitou:</label>
-      <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
-  
+    
+        <button type="submit" class="submit-btn">Enviar</button> <!-- Botão de envio do formulário -->
+        <button type="button" onclick="cancelarFormulario()" 
+        style="margin-left: 10px; background-color: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
+  </form> <!-- Botão de cancelar o formulário -->
 
-      <form id="formulario" method="POST">
-
-        <label class="etapa-label">4ª ETAPA</label>
-    
-        <label>1 - Empresa:</label>
-        <input type="text" name="empresa" required>
-    
-        <label>2 - Data:</label>
-        <input type="date" name="data" required>
-    
-        <label>3 - Origem:</label>
-        <input type="text" name="origem" required>
-    
-        <label>4 - Destino:</label>
-        <input type="text" name="destino" required>
-    
-        <label>5 - Hora:</label>
-        <input type="time" name="hora" required>
-    
-        <label>6 - Lista de Pax:</label>
-        <div id="pax-container"></div>
-    
-        <label>7 - Email do solicitante:</label>
-        <input type="email" name="email" required>
-    
-        <label>8 - Data que solicitou:</label>
-        <input type="text" name="dataSolicitada" id="dataSolicitada" readonly>
-    
-        <button type="submit" class="submit-btn">Enviar</button>
-        <button type="button" onclick="cancelarFormulario()" style="margin-left: 10px; background-color: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
-  </form>
-
-  <div class="controls">
-    <button id="verVoos" onclick="mostrarVoos()">VOOS AGENDADOS</button>
-    <button onclick="exportarCSV()">EXPORTAR CSV</button>
+  <div class="controls"> <!-- Contêiner para os controles -->
+    <label class="etapa-label">2ª ETAPA</label> <!-- Rótulo para a segunda etapa -->
+    <button id="verVoos" onclick="mostrarVoos()">VOOS AGENDADOS</button> <!-- Botão para visualizar os voos agendados -->   
+    <button onclick="exportarCSV()">EXPORTAR CSV</button> <!-- Botão para exportar os voos agendados para CSV -->
   </div>
   
 
 
-  <div id="voosAgendados"></div>
+  <div id="voosAgendados"></div> <!-- Contêiner para exibir os voos agendados -->
 
-  <script>
-    let voos = JSON.parse(localStorage.getItem("voos")) || [];
-    let ordemBase = 20250000;
-    let editandoIndex = null;
+  <script> // Script para gerenciar a exibição do formulário e os voos agendados
+    let voos = JSON.parse(localStorage.getItem("voos")) || []; // Obtém os voos armazenados no localStorage ou inicializa como um array vazio
+    let ordemBase = 20250000; // Base para gerar a ordem de serviço
+    let editandoIndex = null; // Variável para armazenar o índice do voo que está sendo editado
 
-    function mostrarFormulario(qtdPax, tipo) {
-      const botoes = document.querySelectorAll(".button-container button");
-      botoes.forEach(btn => {
-        if (btn.innerText !== tipo) btn.style.display = "none";
-        else btn.classList.add("form-button-fixed");
+    function mostrarFormulario(qtdPax, tipo) { // Função para exibir o formulário de solicitação de voo
+      const botoes = document.querySelectorAll(".button-container button"); // Seleciona todos os botões da classe button-container
+      botoes.forEach(btn => { // Itera sobre os botões
+        if (btn.innerText !== tipo) btn.style.display = "none"; // Oculta os botões que não foram clicados
+        else btn.style.display = "inline-block"; // Mantém o botão clicado visível
+        if (btn.innerText !== tipo) btn.classList.remove("form-button-fixed"); // Remove a classe de botão fixo dos outros botões
+        else btn.classList.add("form-button-fixed"); // Adiciona a classe de botão fixo ao botão clicado
       });
 
-      function cancelarVoo(index) {
-  if (confirm("Tem certeza que deseja cancelar esta solicitação?")) {
+      function cancelarVoo(index) {  // Função para cancelar um voo agendado
+  if (confirm("Tem certeza que deseja cancelar esta solicitação?")) {  // Confirmação antes de cancelar
     voos.splice(index, 1); // Remove o voo da lista pelo índice
     localStorage.setItem("voos", JSON.stringify(voos)); // Atualiza os dados armazenados
     mostrarVoos(); // Atualiza a exibição da lista de voos
@@ -365,98 +283,107 @@ header img {
 }
 
 
-      const agora = new Date();
-      const dataHoraFormatada = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-      document.getElementById("dataSolicitada").value = dataHoraFormatada;
+      const agora = new Date(); // Obtém a data e hora atual
+      const dataHoraFormatada = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); // Formata a data e hora atual
+      document.getElementById("dataSolicitada").value = dataHoraFormatada; // Formata a data e hora atual para o campo "Data que solicitou"
 
-      const paxContainer = document.getElementById("pax-container");
-      paxContainer.innerHTML = "";
-      for (let i = 1; i <= qtdPax; i++) {
-        paxContainer.innerHTML += `<input type="text" name="pax${i}" placeholder="Passageiro ${i}">`;
-      }
+      const paxContainer = document.getElementById("pax-container"); // Seleciona o contêiner onde os campos de passageiros serão adicionados
+      paxContainer.innerHTML = ""; // Limpa o contêiner antes de adicionar novos campos
+      for (let i = 1; i <= qtdPax; i++) { // Adiciona os campos de entrada para os passageiros
+        paxContainer.innerHTML += `<input type="text" name="pax${i}" placeholder="Passageiro ${i}">`;  // Campo de entrada para o passageiro
+      } 
 
-      document.getElementById("formulario").style.display = "block";
+      document.getElementById("formulario").style.display = "block"; // Exibe o formulário
     }
 
-    function cancelarFormulario() {
-      document.getElementById("formulario").style.display = "none";
-      document.querySelectorAll(".button-container button").forEach(btn => {
-        btn.style.display = "inline-block";
-        btn.classList.remove("form-button-fixed");
-      });
-      document.getElementById("formulario").reset();
+
+
+     
+    function cancelarFormulario() {  // Função para cancelar o formulário
+      document.getElementById("formulario").style.display = "none"; // Oculta o formulário
+      document.querySelectorAll(".button-container button").forEach(btn => { // Seleciona todos os botões da classe button-container
+        btn.style.display = "inline-block"; // Exibe todos os botões novamente
+        btn.classList.remove("form-button-fixed"); // Remove a classe de botão fixo de todos os botões
+      }); 
+      document.getElementById("formulario").reset(); // Reseta o formulário
     }
 
-    document.getElementById("formulario").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const form = event.target;
-      const dados = new FormData(form);
 
-      let voo = {
-        os: (ordemBase + voos.length),
-        aeronave: document.querySelector(".form-button-fixed")?.innerText || "Desconhecida",
-        empresa: dados.get("empresa"),
-        data: dados.get("data"),
-        origem: dados.get("origem"),
-        destino: dados.get("destino"),
-        hora: dados.get("hora"),
-        pax: [],
-        email: dados.get("email"),
-        dataSolicitada: dados.get("dataSolicitada")
+
+    document.getElementById("formulario").addEventListener("submit", function(event) { 
+      event.preventDefault(); // Previne o envio padrão do formulário
+      const form = event.target; // Obtém o formulário que disparou o evento
+      const dados = new FormData(form); // Cria um objeto FormData com os dados do formulário
+
+      let voo = { 
+        os: (ordemBase + voos.length), // Gera um número de ordem de serviço único
+        aeronave: document.querySelector(".form-button-fixed")?.innerText || "Desconhecida", // Obtém o nome do botão clicado
+        empresa: dados.get("empresa"), // Obtém o valor do campo "empresa"
+        data: dados.get("data"), // Obtém o valor do campo "data"
+        origem: dados.get("origem"), // Obtém o valor do campo "origem"
+        destino: dados.get("destino"), // Obtém o valor do campo "destino"
+        hora: dados.get("hora"), // Obtém o valor do campo "hora"
+        pax: [], // Inicializa um array vazio para os passageiros
+        email: dados.get("email"), // Obtém o valor do campo "email"
+        dataSolicitada: dados.get("dataSolicitada") // Obtém o valor do campo "dataSolicitada"
       };
 
-      for (let [key, value] of dados.entries()) {
-        if (key.startsWith("pax") && value.trim() !== "") {
-          voo.pax.push(value);
+      for (let [key, value] of dados.entries()) { 
+        if (key.startsWith("pax") && value.trim() !== "") { // Verifica se o campo é um passageiro e não está vazio
+          voo.pax.push(value); // Adiciona o passageiro ao array de passageiros
         }
       }
 
-      if (editandoIndex !== null) {
-        voos[editandoIndex] = voo;
-        editandoIndex = null;
-      } else {
-        voos.push(voo);
+      if (editandoIndex !== null) { // Verifica se está editando um voo existente
+        voos[editandoIndex] = voo; // Atualiza o voo existente com os novos dados
+        editandoIndex = null; // Reseta o índice de edição
+      } else { // Se não estiver editando, adiciona um novo voo
+        voos.push(voo); // Adiciona o novo voo à lista de voos
       }
 
-      localStorage.setItem("voos", JSON.stringify(voos));
-      document.getElementById("verVoos").style.display = "block";
+      localStorage.setItem("voos", JSON.stringify(voos)); // Armazena os voos no localStorage
+      document.getElementById("verVoos").style.display = "block"; // Exibe o botão "VOOS AGENDADOS" após o envio do formulário
 
-      fetch("https://formsubmit.co/ajax/wellington@rbftaxiaereo.com.br", {
+      fetch("https://formsubmit.co/ajax/wellington@rbftaxiaereo.com.br", { // URL do FormSubmit
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          OS: voo.os,
-          Aeronave: voo.aeronave,
-          Empresa: voo.empresa,
-          Data: voo.data,
-          Origem: voo.origem,
-          Destino: voo.destino,
-          Hora: voo.hora,
-          Pax: voo.pax.join(", "),
-          Email: voo.email,
-          Solicitado_em: voo.dataSolicitada
+        headers: { "Content-Type": "application/json" }, // Define o tipo de conteúdo como JSON
+        body: JSON.stringify({  
+          OS: voo.os, // Corrigido para usar voo.os
+          Aeronave: voo.aeronave, // Corrigido para usar voo.aeronave
+          Empresa: voo.empresa, // Corrigido para usar voo.empresa
+          Data: voo.data, // Corrigido para usar voo.data
+          Origem: voo.origem, // Corrigido para usar voo.origem
+          Destino: voo.destino, // Corrigido para usar voo.destino
+          Hora: voo.hora, // Corrigido para usar voo.hora
+          Pax: voo.pax.join(", "),  // Converte o array de passageiros em uma string
+          Email: voo.email, // Corrigido para usar voo.email
+          Solicitado_em: voo.dataSolicitada  // Corrigido para usar voo.dataSolicitada
         })
       })
-      .then(response => {
-        if (!response.ok) throw new Error("Erro ao enviar.");
-        alert("Voo agendado com sucesso!");
-        form.reset();
-        cancelarFormulario();
-        mostrarVoos();
+      .then(response => { // Faz a requisição para o FormSubmit
+        if (!response.ok) throw new Error("Erro ao enviar."); // Lança um erro se a resposta não for ok
+        alert("Voo agendado com sucesso!"); // Exibe um alerta de sucesso
+        form.reset(); // Reseta o formulário após o envio
+        cancelarFormulario(); // Oculta o formulário após o envio
+        mostrarVoos(); // Atualiza a exibição da lista de voos
       })
-      .catch(error => {
-        alert("Erro ao enviar o formulário. Tente novamente.");
-        console.error(error);
+      .catch(error => { // Captura erros na requisição
+        alert("Erro ao enviar o formulário. Tente novamente."); // Exibe um alerta em caso de erro
+        console.error(error); // Exibe o erro no console para depuração
       });
     });
 
-    function mostrarVoos() {
-      const container = document.getElementById("voosAgendados");
-      container.innerHTML = "";
-      voos.forEach((voo, i) => {
-        const paxId = "paxList" + i;
-        container.innerHTML += `
-          <div class="voo-item">
+    function mostrarVoos() { // Função para exibir os voos agendados
+      const container = document.getElementById("voosAgendados"); // Seleciona o contêiner onde os voos agendados serão exibidos
+      container.innerHTML = ""; // Limpa o contêiner antes de adicionar novos voos
+      if (voos.length === 0) {
+        container.innerHTML = "<p>Nenhum voo agendado.</p>"; // Exibe mensagem se não houver voos agendados
+        return; // Retorna se não houver voos agendados
+      }
+      voos.forEach((voo, i) => { // Itera sobre cada voo agendado
+        const paxId = "paxList" + i; // Gera um ID único para a lista de passageiros
+        container.innerHTML += `  
+          <div class="voo-item"> 
             <div><strong>Ordem Serviço</strong><br>${voo.os}</div>
             <div><strong>Aeronave</strong><br>${voo.aeronave}</div>
             <div><strong>Empresa</strong><br>${voo.empresa}</div>
@@ -468,64 +395,66 @@ header img {
             <div><strong>Solicitado em</strong><br>${voo.dataSolicitada}</div>
             <div>
               <button class="btn-pax" onclick="togglePax('${paxId}')">Ver Pax</button>
-              <div id="${paxId}" class="pax-list">${voo.pax.map(p => `<div>${p}</div>`).join("")}</div>
+              <div id="${paxId}" class="pax-list">${voo.pax.map(p => `<div>${p}</div>`).join("")}</div> 
             </div>
-             <button class="btn-cancelar" onclick="cancelarVoo(${i})">Cancelar Voo</button>
-      </div>
-          </div>
+             <button class="btn-cancelar" onclick="cancelarVoo(${i})">Cancelar Voo</button>  
+      </div> 
+          </div>  
         `;
       });
-      container.style.display = "block";
+      container.style.display = "block"; // Exibe a lista de voos agendados
+      document.getElementById("verVoos").style.display = "none"; // Oculta o botão "VOOS AGENDADOS" após exibir a lista
     }
 
 
     
-    function togglePax(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === "flex" ? "none" : "flex";
+    function togglePax(id) { // Função para alternar a exibição da lista de passageiros
+      const container = document.getElementById("voosAgendados"); // Seleciona o contêiner de voos agendados
+      const el = document.getElementById(id); // Seleciona o elemento da lista de passageiros
+      el.style.display = el.style.display === "flex" ? "none" : "flex"; // Alterna a exibição da lista de passageiros
     }
 
     
 
-    function exportarCSV() {
-      if (voos.length === 0) {
-        alert("Nenhum voo agendado para exportar.");
-        return;
+    function exportarCSV() { // Função para exportar os dados dos voos agendados para um arquivo CSV
+      if (voos.length === 0) { // Verifica se há voos agendados
+        alert("Nenhum voo agendado para exportar."); // Exibe um alerta se não houver voos agendados
+        return; // Exibe um alerta se não houver voos agendados
       }
 
       
 
-      let csvContent = "data:text/csv;charset=utf-8,";
-      csvContent += "Aeronave,Empresa,Data,Origem,Destino,Hora,Email,DataSolicitada,Passageiros\n";
+      let csvContent = "data:text/csv;charset=utf-8,"; // Inicia o conteúdo CSV
+      csvContent += "Aeronave,Empresa,Data,Origem,Destino,Hora,Email,DataSolicitada,Passageiros\n"; // Cabeçalho do CSV
 
-      voos.forEach(voo => {
-        const linha = [
-          voo.aeronave,
-          voo.empresa,
-          voo.os,
-          voo.data,
-          voo.origem,
-          voo.destino,
-          voo.hora,
-          voo.email,
-          voo.dataSolicitada,
-          '"' + voo.pax.join(", ") + '"'
-        ].join(",");
-        csvContent += linha + "\n";
+      voos.forEach(voo => { // Itera sobre cada voo agendado
+        const linha = [ // Cria uma linha CSV com os dados do voo
+          voo.aeronave, // Corrigido para usar voo.aeronave
+          voo.empresa, // Corrigido para usar voo.empresa
+          voo.os, // Corrigido para usar voo.os
+          voo.data, // Corrigido para usar voo.data
+          voo.origem, // Corrigido para usar voo.origem
+          voo.destino, // Corrigido para usar voo.destino
+          voo.hora, // Corrigido para usar voo.hora
+          voo.email, // Corrigido para usar voo.email
+          voo.dataSolicitada, // Corrigido para usar voo.dataSolicitada
+          '"' + voo.pax.join(", ") + '"' // Corrigido para usar voo.pax.join(", ")
+        ].join(","); // Junta os dados com vírgulas
+        csvContent += linha + "\n"; // Adiciona a linha ao conteúdo CSV
   });
 
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "voos_agendados.csv");
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  const encodedUri = encodeURI(csvContent); // Codifica o conteúdo CSV
+  const link = document.createElement("a"); // Cria um link temporário
+  link.setAttribute("href", encodedUri); // Define o href do link como o conteúdo CSV codificado
+  link.setAttribute("download", "voos_agendados.csv"); // Define o nome do arquivo para download
+  document.body.appendChild(link); // Adiciona o link ao corpo do documento
+  link.click(); // Simula um clique no link para iniciar o download
+  document.body.removeChild(link); // Remove o link do documento após o download
 }
 
 
     if (voos.length > 0) {
-      document.getElementById("verVoos").style.display = "block";
+      document.getElementById("verVoos").style.display = "block"; // Exibe o botão de "VOOS AGENDADOS" se houver voos agendados
     }
   </script>
 

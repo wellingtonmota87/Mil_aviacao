@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>SOLICITAÇÃO DE VOO</title>
-  <style>
+<!DOCTYPE html> 
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
+<head> <!-- Cabeçalho da página -->
+  <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+  <title>SOLICITAÇÃO DE VOO</title> <!-- Título da página -->
+  <style> /* Estilos CSS para a página */
 
     
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+body { /* Estilo para o corpo da página */
+  margin: 0; /* Remove margens padrão do body */
+  font-family: Arial, sans-serif; /* Fonte padrão */
   background-image: url('C:/Users/user/Documents/Minhas Programações/Mil_Aviação/IMAGENS/cessna-citation-gen3-novo_widelg.jpg'); /* Define a imagem de fundo */
   background-size: cover; /* Faz a imagem cobrir toda a tela */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Impede a repetição da imagem */
 }
 
-header {
+header { /* Estilo para o cabeçalho */
   display: flex; /* Usa Flexbox para organizar os elementos */
   justify-content: center; /* Centraliza a imagem horizontalmente */
   align-items: center; /* Centraliza a imagem verticalmente */
@@ -24,24 +24,25 @@ header {
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
 }
 
-header img {
+header img { /* Estilo para a imagem do cabeçalho */
   height: 130px; /* Define a altura da imagem */
 }
 
 
-    .titulo-central {
+    .titulo-central { /* Estilo para o título centralizado */
 
-      background-color: #0d1f1e;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      font-size: 32px;
-      font-weight: bold;
-      letter-spacing: 10px;
+      background-color: #0d1f1e; /* Cor de fundo do título */
+      color: white; /* Cor do texto */
+      text-align: center; /* Centraliza o texto */
+      padding: 10px 0; /* Espaçamento interno */
+      font-size: 32px; /* Tamanho da fonte */
+      font-weight: bold;   
+      letter-spacing: 10px; /* Espaçamento entre letras */
     }
 
-    .button-container {
-  display: flex;
+
+    .button-container { /* Estilo para o contêiner dos botões */
+  display: flex; /* Usa Flexbox para organizar os botões */
   flex-direction: row; /* Organiza os botões na vertical */
   gap: 290px; /* Espaço entre os botões */
   align-items: flex-start; /* Alinha os botões no centro */
@@ -49,14 +50,22 @@ header img {
   padding-left: 30px; /* Adiciona um pequeno espaçamento da borda esquerda */
 }
 
-    button {
-      font-size: 20px;
+
+    button { /* Estilo para os botões */
+      font-size: 20px; /* Tamanho da fonte */
       padding: 15px 30px; /* Espaçamento interno do botão */
       border: none; /* Remove a borda padrão */
       border: 2px solid black; /* Borda preta de 2px */
       border-radius: 8px; /* Bordas arredondadas */
       color: white; /* Cor do texto */
       cursor: pointer;  /* Cursor de ponteiro ao passar o mouse */
+    }
+
+    button:hover { /* Efeito ao passar o mouse sobre os botões */
+      opacity: 0.8; /* Reduz a opacidade */
+    }
+    button:active { /* Efeito ao clicar nos botões */
+      transform: scale(0.95); /* Reduz o tamanho do botão */
     }
     .mib {background: linear-gradient(to bottom, #125296, #b3bed3);} 
     .krt {background: linear-gradient(to bottom, #FF4500, #e9c5a4);} 
@@ -69,7 +78,7 @@ header img {
       top: 250px; /* Alinha o botão ao topo */
     }
 
-    form {
+    form { /* Estilo para o formulário */
       display: none; /* Oculta o formulário inicialmente */
       max-width: 600px; /* Largura máxima do formulário */
       margin: -250px auto; /* Centraliza o formulário verticalmente */
@@ -160,11 +169,11 @@ header img {
       cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
     }
 
-      .btn-cancelar {
+      .btn-cancelar { /* Estilo para o botão "Cancelar Voo" */
      background: #e74c3c; /* Vermelho */
      color: white; /* Cor do texto */
      border: none; /* Remove a borda padrão */
-     padding: 5px 10px;  /* Espaçamento interno do botão */
+     padding: 4px 8px;  /* Espaçamento interno do botão */
      font-size: 12px; /* Tamanho da fonte do botão */
      margin-top: 5px; /* Espaçamento acima do botão */
      border-radius: 5px;  /* Bordas arredondadas */
@@ -181,14 +190,14 @@ header img {
      cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
 }
 
-.etapa-label {
+.etapa-label { /* Estilo para o rótulo da etapa */
   display: block;        /* Faz a label se comportar como um bloco */
   width: 100%;           /* Ocupa 100% da largura do contêiner pai */
   text-align: center;    /* Centraliza o texto */
   font-weight: bold;     /* Opcional: destaque no texto */
   margin: 30px 0;        /* Espaçamento vertical */
   text-decoration: underline; /* Sublinha o texto */
-  font-size: 18px;
+  font-size: 18px; /* Tamanho da fonte */
   color: #000; /* ou qualquer outra cor */
   background-color: #faa454; /* Cor de fundo para destacar */
   padding: 10px; /* Espaçamento interno para melhorar a legibilidade */
@@ -196,14 +205,14 @@ header img {
 }
 
 
-  </style> 
+  </style>  
 </head> 
 <body>
 
-  <header>
+  <header> <!-- Cabeçalho da página -->
     <img src="C:/Users/user/Documents/Programação/Mil_Aviacao/LOGO/LOGO MIL AVIAÇÃO -.png" alt="Logo MIL AVIAÇÃO"> <!-- Logo da empresa -->
-  </header>
-  </header>
+  </header> <!-- Fim do cabeçalho -->
+  </header> <!-- Fim do cabeçalho -->
 
   <div class="titulo-central">SOLICITAÇÃO DE VOO</div> <!-- Título centralizado -->
 
@@ -247,11 +256,19 @@ header img {
     
         <button type="submit" class="submit-btn">Enviar</button> <!-- Botão de envio do formulário -->
         <button type="button" onclick="cancelarFormulario()" 
-        style="margin-left: 10px; background-color: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Cancelar</button>
+        style=
+        "margin-left: 10px; 
+        background-color: #cc2c17; 
+        color: white; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 8px; 
+        cursor: pointer;
+        ">Cancelar</button>
+
   </form> <!-- Botão de cancelar o formulário -->
 
   <div class="controls"> <!-- Contêiner para os controles -->
-    <label class="etapa-label">2ª ETAPA</label> <!-- Rótulo para a segunda etapa -->
     <button id="verVoos" onclick="mostrarVoos()">VOOS AGENDADOS</button> <!-- Botão para visualizar os voos agendados -->   
     <button onclick="exportarCSV()">EXPORTAR CSV</button> <!-- Botão para exportar os voos agendados para CSV -->
   </div>
@@ -310,7 +327,7 @@ header img {
 
 
 
-    document.getElementById("formulario").addEventListener("submit", function(event) { 
+    document.getElementById("formulario").addEventListener("submit", function(event) {  // Adiciona um evento de envio ao formulário
       event.preventDefault(); // Previne o envio padrão do formulário
       const form = event.target; // Obtém o formulário que disparou o evento
       const dados = new FormData(form); // Cria um objeto FormData com os dados do formulário
@@ -328,7 +345,7 @@ header img {
         dataSolicitada: dados.get("dataSolicitada") // Obtém o valor do campo "dataSolicitada"
       };
 
-      for (let [key, value] of dados.entries()) { 
+      for (let [key, value] of dados.entries()) {  // Itera sobre os dados do formulário
         if (key.startsWith("pax") && value.trim() !== "") { // Verifica se o campo é um passageiro e não está vazio
           voo.pax.push(value); // Adiciona o passageiro ao array de passageiros
         }
@@ -382,7 +399,7 @@ header img {
       }
       voos.forEach((voo, i) => { // Itera sobre cada voo agendado
         const paxId = "paxList" + i; // Gera um ID único para a lista de passageiros
-        container.innerHTML += `  
+        container.innerHTML += `   
           <div class="voo-item"> 
             <div><strong>Ordem Serviço</strong><br>${voo.os}</div>
             <div><strong>Aeronave</strong><br>${voo.aeronave}</div>
@@ -397,7 +414,8 @@ header img {
               <button class="btn-pax" onclick="togglePax('${paxId}')">Ver Pax</button>
               <div id="${paxId}" class="pax-list">${voo.pax.map(p => `<div>${p}</div>`).join("")}</div> 
             </div>
-             <button class="btn-cancelar" onclick="cancelarVoo(${i})">Cancelar Voo</button>  
+             <button class="btn-cancelar" onclick="cancelarVoo(${i})">Cancelar Voo</button> 
+             <div><strong>wellintonmota</strong><br>${voo.lo}</div> 
       </div> 
           </div>  
         `;
@@ -453,9 +471,13 @@ header img {
 }
 
 
-    if (voos.length > 0) {
+    if (voos.length > 0) { // Verifica se há voos agendados
       document.getElementById("verVoos").style.display = "block"; // Exibe o botão de "VOOS AGENDADOS" se houver voos agendados
     }
+
+
+
+    
   </script>
 
 </body>
